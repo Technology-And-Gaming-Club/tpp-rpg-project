@@ -20,6 +20,9 @@ Not much knowledge is needed to help out with the project. Simple things like in
 
 ## Project Initialization Steps
 1. First you need to clone this repo.
+	```sh
+		git clone https://github.com/DarshK35/tpp-rpg-project.git
+	```
 2. Then open the project from Unity Hub.
 
 And that's it, you can begin/continue working on the project from your side
