@@ -7,10 +7,12 @@ public class CharacterControllerScript : MonoBehaviour {
 	public float moveSpeed;
 
 	[Header("Mouse")]
+	[Range(0f, 360f)]
+	public float mouseX;
+	[Range(-360f, 0f)]
+	public float mouseY;
 	public float mouseXSens;
 	public float mouseYSens;
-	public float mouseYMin;
-	public float mouseYMax;
 
 	[Header("Inputs")]
 	[Range(-1f, 1f)]
@@ -31,6 +33,8 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		mouseX = 0;
+		mouseY = 0;
 	}
 
 	void Update() {
@@ -45,39 +49,29 @@ public class CharacterControllerScript : MonoBehaviour {
 		mouseYInput = Input.GetAxis("Mouse Y");
 		jump = Input.GetButtonDown("Jump");
 		crouch = Input.GetButton("Crouch");
+
+		mouseX = camera.rotation.eulerAngles.y;
+		mouseY = -camera.rotation.eulerAngles.x;
 	}
 
 	void mouseMovement() {
 		float mouseXDel = mouseXSens * mouseXInput * Time.deltaTime;
 		float mouseYDel = mouseYSens * mouseYInput * Time.deltaTime;
 
+		mouseX += mouseXDel;
+		mouseY += mouseYDel;
 
-		Vector3 delta = new Vector3(-mouseYDel, mouseXDel, 0);
-		Vector3 FinalRotation = camera.rotation.eulerAngles + delta;
-
-		FinalRotation = clampRotation(FinalRotation, -mouseYMax, -mouseYMin, -180f, 180f);
-
-		camera.rotation = Quaternion.Euler(FinalRotation);
-	}
-
-	Vector3 clampRotation(Vector3 rotation, float xMin, float xMax, float yMin, float yMax) {
-		float x, y;
-		if(rotation.x < xMin) {
-			x = xMin;
-		} else if(rotation.x > xMax) {
-			x = xMax;
-		} else {
-			x = rotation.x;
+		if(mouseX < 0) {
+			mouseX += 360;
+		} else if(mouseY > 360f) {
+			mouseX -= 360;
+		}
+		if(mouseY < -35 && mouseY > -265) {
+			mouseY = -35;
 		}
 
-		if(rotation.y <= yMin) {
-			y = rotation.y + 360;
-		} else if(rotation.y >= yMax) {
-			y = rotation.y - 360;
-		} else {
-			y = rotation.y;
-		}
+		Vector3 finalRotation = new Vector3(-mouseY, mouseX, 0);
 
-		return new Vector3(x, y, 0);
+		camera.rotation = Quaternion.Euler(finalRotation);
 	}
 }
