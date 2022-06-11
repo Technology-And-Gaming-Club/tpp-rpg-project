@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CharacterControllerScript.cs" />
+    <Compile Include="Assets\Scripts\AltChatacterMovementScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

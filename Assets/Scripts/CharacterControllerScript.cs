@@ -5,11 +5,15 @@ using UnityEngine;
 public class CharacterControllerScript : MonoBehaviour {
 	[Header("Movement")]
 	public bool isGrounded;
-	public float gravity;
+	public float runSpeed;
+	public float walkSpeed;
+	[Range(0f, 0.5f)]
 	public float moveSpeed;
+	public Vector3 targetVelocity;
 	public float jumpHeight;
 
 	[Header("Mouse")]
+	public float sens;
 	[Range(0f, 360f)]
 	public float mouseX;
 	[Range(-360f, 0f)]
@@ -32,6 +36,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	[Header("Misc")]
 	public Rigidbody rb;
+	public CharacterController cc;
 	public Transform camera;
 	public Transform body;
 	public Transform head;
@@ -40,28 +45,22 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		cc = GetComponent<CharacterController>();
+		targetVelocity = new Vector3();
 		mouseX = 0;
 		mouseY = 0;
 	}
 
 	void Update() {
-		groundCheck();
+		isGrounded = cc.isGrounded;
 		getInputVals();
 		mouseMovement();
 		playerMovement();
 		miscControlFunctions();
+		cc.Move(targetVelocity);
 	}
 
 
-	void groundCheck() {
-		RaycastHit hit;
-		Physics.Raycast(transform.position, -transform.up, out hit);
-		if(Mathf.Approximately(hit.distance, 0.75f) || Mathf.Approximately(hit.distance, 0.5625f)) {
-			isGrounded = true;
-		} else {
-			isGrounded = false;
-		}
-	}
 	void getInputVals() {
 		moveHorInput = Input.GetAxis("Horizontal");
 		moveVertInput = Input.GetAxis("Vertical");
@@ -101,24 +100,26 @@ public class CharacterControllerScript : MonoBehaviour {
 	}
 	void playerMovement() {
 		if(walk) {
-			moveSpeed = 5;
+			moveSpeed = walkSpeed;
 		} else {
-			moveSpeed = 10;
+			moveSpeed = runSpeed;
 		}
-		float angle = camera.rotation.eulerAngles.y * Mathf.PI / 180f;
-		Vector3 moveDir = (moveHorInput * transform.right + moveVertInput * transform.forward).normalized;
-		Vector3 finalVelocity = moveSpeed * moveDir * new Vector3(moveHorInput, rb.velocity.y, moveVertInput).magnitude;
+		Vector3 moveDir;
+		moveDir = moveHorInput * transform.right + moveVertInput * transform.forward;
+		targetVelocity = moveSpeed * moveDir;
 
-		if(isGrounded) {
-			rb.velocity = Vector3.Lerp(finalVelocity, rb.velocity, 0.5f);
+		if(!cc.isGrounded) {
+			targetVelocity.x /= 0.75f;
+			targetVelocity.z /= 0.75f;
+			targetVelocity.y += Physics.gravity.y * Time.deltaTime;
 		} else {
-			rb.velocity -= Vector3.up * gravity * Time.deltaTime;
+			targetVelocity.y = 0;
 		}
 	}
 
 	void miscControlFunctions() {
-		if(jump && isGrounded) {
-			StartCoroutine(jumpCoroutine());
+		if(jump && cc.isGrounded) {
+			targetVelocity.y += Mathf.Sqrt(2 * Physics.gravity.magnitude * jumpHeight) * cc.stepOffset;
 		}
 
 		if(crouch) {
@@ -128,12 +129,5 @@ public class CharacterControllerScript : MonoBehaviour {
 			transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1f, 1f, 1f), 0.5f);
 			head.localScale = new Vector3(0.4f, 0.4f / transform.localScale.y, 0.4f);
 		}
-	}
-
-
-	IEnumerator jumpCoroutine() {
-		float jumpVel = Mathf.Sqrt(2 * gravity * jumpHeight);
-		rb.velocity += Vector3.up * jumpVel;
-		yield return new WaitForSeconds(0.5f);
 	}
 }
