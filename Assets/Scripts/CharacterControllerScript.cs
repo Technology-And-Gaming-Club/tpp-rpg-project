@@ -37,6 +37,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	public bool walk;
 	public bool jump;
 	public bool crouch;
+	public bool action;
 
 	[Header("Misc")]
 	public Rigidbody rb;
@@ -74,6 +75,7 @@ public class CharacterControllerScript : MonoBehaviour {
 		walk = Input.GetButton("Walk");
 		jump = Input.GetButton("Jump");
 		crouch = Input.GetButton("Crouch");
+		action = Input.GetButton("Action");
 	}
 
 	void setMoveSpeed() {
@@ -111,6 +113,17 @@ public class CharacterControllerScript : MonoBehaviour {
 			transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1f, 1f, 1f), 0.5f);
 			head.localScale = new Vector3(0.4f, 0.4f / transform.localScale.y, 0.4f);
 		}
+
+		if(action) {
+			RaycastHit hit;
+			Ray ray = new Ray(cam.position + 0.2f * cam.forward, cam.forward);
+			Physics.Raycast(ray, out hit, 1f);
+
+			if(hit.collider != null) {
+				Debug.Log(hit.transform.gameObject);
+				hit.transform.gameObject.SendMessage("playerInteraction", null, SendMessageOptions.DontRequireReceiver);
+			}
+		}
 	}
 
 	void mouseMovement() {
@@ -131,7 +144,7 @@ public class CharacterControllerScript : MonoBehaviour {
 		if(mouseY <= 0) {
 			camRotation.x = -mouseY;
 		} else {
-			camRotation.x = 360 - mouseX;
+			camRotation.x = 360 - mouseY;
 		}
 	}
 	void clampMouseValues() {
