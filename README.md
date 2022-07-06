@@ -4,15 +4,15 @@
 This is a TAG Club Project initiated by Darsh Kumar.
 
 Project Owner: Technology And Gaming Club - [Website](http://www.tagclub.in)
-Project started by: Darsh Kumar - DarshK [GitHub](https://github.com/DarshK35) [itch](https://darshk.itch.io)
+Project started by: Darsh Kumar - DarshK [GitHub](https://github.com/DarshK35) | [itch](https://darshk.itch.io)
 
 Direct contributors:
-1. Armaan Batra - [GitHub](https://github.com/Diablo-The-Supreme) [itch](https://armaanlegend.itch.io)
-2. Ishan Mulchandani - [GitHub](https://github.com/ishanM17) [itch](https://deathg0d.itch.io)
-3. Shaan Chandra - [GitHub](https://github.com/rectangle-man) [itch](https://rectangle-man.itch.io)
-4. Srivishnu Thatha - [GitHub](https://github.com/srivishnu2002) [itch](https://srivishnu2002.itch.io)
-5. Ashwin Ravikumar - [GitHub](https://github.com/E-Lucid-At0r) [itch](https://e-lucidat0r.itch.io)
-6. Anishwar Chakraborty - [GitHub](https://github.com/agentheroic) [itch](https://agentheroic.itch.io)
+1. Armaan Batra - [GitHub](https://github.com/Diablo-The-Supreme) | [itch](https://armaanlegend.itch.io)
+2. Ishan Mulchandani - [GitHub](https://github.com/ishanM17) | [itch](https://deathg0d.itch.io)
+3. Shaan Chandra - [GitHub](https://github.com/rectangle-man) | [itch](https://rectangle-man.itch.io)
+4. Srivishnu Thatha - [GitHub](https://github.com/srivishnu2002) | [itch](https://srivishnu2002.itch.io)
+5. Ashwin Ravikumar - [GitHub](https://github.com/E-Lucid-At0r) | [itch](https://e-lucidat0r.itch.io)
+6. Anishwar Chakraborty - [GitHub](https://github.com/agentheroic) | [itch](https://agentheroic.itch.io)
 
 ## Software Requirements
 The following softwares are needed in order to contribute to the project:
