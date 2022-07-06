@@ -3,11 +3,16 @@
 ## Description
 This is a TAG Club Project initiated by Darsh Kumar.
 
+Project Owner: Technology And Gaming Club - [Website](http://www.tagclub.in)
+Project started by: Darsh Kumar - DarshK [GitHub](https://github.com/DarshK35) [itch](https://darshk.itch.io)
+
 Direct contributors:
-1. Santushti Ranjan
-2. Vinayak Agarwal
-3. Anishwar Chakraborty
-4. Ishan Mulchandani
+1. Armaan Batra - [GitHub](https://github.com/Diablo-The-Supreme) [itch](https://armaanlegend.itch.io)
+2. Ishan Mulchandani - [GitHub](https://github.com/ishanM17) [itch](https://deathg0d.itch.io)
+3. Shaan Chandra - [GitHub](https://github.com/rectangle-man) [itch](https://rectangle-man.itch.io)
+4. Srivishnu Thatha - [GitHub](https://github.com/srivishnu2002) [itch](https://srivishnu2002.itch.io)
+5. Ashwin Ravikumar - [GitHub](https://github.com/E-Lucid-At0r) [itch](https://e-lucidat0r.itch.io)
+6. Anishwar Chakraborty - [GitHub](https://github.com/agentheroic) [itch](https://agentheroic.itch.io)
 
 ## Software Requirements
 The following softwares are needed in order to contribute to the project:
@@ -21,7 +26,7 @@ Not much knowledge is needed to help out with the project. Simple things like in
 ## Project Initialization Steps
 1. First you need to clone this repo.
 	```sh
-		git clone https://github.com/DarshK35/tpp-rpg-project.git
+		git clone https://github.com/Technology-And-Gaming-Club/tpp-rpg-project.git
 	```
 2. Then open the project from Unity Hub.
 
