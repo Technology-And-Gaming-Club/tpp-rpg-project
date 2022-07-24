@@ -53,9 +53,14 @@
     <UnityVersion>2020.3.27f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Mission Interactables\MissionTriggerBehaviour.cs" />
     <Compile Include="Assets\Scripts\CharacterControllerScript.cs" />
     <Compile Include="Assets\Scripts\DoorBehaviour.cs" />
-    <Compile Include="Assets\Scripts\TriggerMarkerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Mission Interactables\MissionSequence.cs" />
+    <Compile Include="Assets\Scripts\Mission Interactables\PositionTriggerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Mission Interactables\MissionPickupItem.cs" />
+    <Compile Include="Assets\Scripts\Mission Interactables\MissionObjective.cs" />
+    <Compile Include="Assets\Scripts\Mission Interactables\PersonDialogueObjective.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
