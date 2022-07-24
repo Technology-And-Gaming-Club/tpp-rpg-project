@@ -1,17 +1,39 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Mission_Interactables {
-	public class PositionTriggerBehaviour : MonoBehaviour {
+public class PositionTriggerBehaviour : MonoBehaviour {
+	public int id;
+	public bool active;
+	public bool passed;
+	public GameObject targetPlayer;
 
-		// Use this for initialization
-		void Start() {
+	float playerDist;
 
+	// Use this for initialization
+	void Start() {
+		passed = false;
+		active = false;
+	}
+
+	// Update is called once per frame
+	void Update() {
+		if(active) {
+			pollPlayerDist();
+			if(playerDist < transform.localScale.x) {
+				active = true;
+			}
 		}
+	}
 
-		// Update is called once per frame
-		void Update() {
+	public void activate() {
+		active = true;
+	}
 
-		}
+	void pollPlayerDist() {
+		Vector3 playerPos, pos;
+		playerPos = targetPlayer.transform.position - Vector3.up * targetPlayer.transform.position.y;
+		pos = transform.position - Vector3.up * transform.position.y;
+
+		playerDist = (playerPos - pos).magnitude;
 	}
 }
