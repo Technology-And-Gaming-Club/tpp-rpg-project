@@ -22,7 +22,7 @@ public class MissionSequence : MonoBehaviour {
 		}
 	}
 
-	void activateMission() {
+	public void activateMission() {
 		started = true;
 	}
 }

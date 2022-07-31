@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class MissionTriggerBehaviour : MonoBehaviour {
-	public GameObject targetMission;
+	public MissionSequence targetMission;
 	public GameObject targetPlayer;
 	public float markerRadius;
 	float playerDist;
@@ -11,7 +11,7 @@ public class MissionTriggerBehaviour : MonoBehaviour {
 		pollPlayerDist();
 
 		if(playerDist < markerRadius) {
-			targetMission.SendMessage("activateMission", null, SendMessageOptions.DontRequireReceiver);
+			targetMission.activateMission();
 			Destroy(gameObject);
 		}
 	}

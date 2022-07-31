@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 
-public class MissionPickupItem : MonoBehaviour {
-	public bool taken;
-
+public class MissionPickupItem : MissionObjective {
 	void Start() {
-		taken = false;
+		passed = false;
 	}
 
 	void playerInteraction() {
-		taken = true;
+		passed = true;
 	}
+
+	public override void play() {
+		
+ 	}
 }

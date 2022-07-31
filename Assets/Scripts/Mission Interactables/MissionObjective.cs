@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class MissionObjective : MonoBehaviour {
+abstract public class MissionObjective : MonoBehaviour {
 	public bool started;
+	public bool passed;
 
 	// Use this for initialization
 	void Start() {
@@ -14,7 +15,5 @@ public class MissionObjective : MonoBehaviour {
 
 	}
 
-	public void play() {
-		started = true;
-	}
+	abstract public void play();
 }

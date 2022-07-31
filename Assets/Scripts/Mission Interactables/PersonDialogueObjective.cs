@@ -8,4 +8,8 @@ public class PersonDialogueObjective : MissionObjective {
 	void Update() {
 
 	}
+
+	public override void play() {
+
+	}
 }
