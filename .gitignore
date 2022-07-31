@@ -56,3 +56,4 @@ crashlytics-build.properties
 
 # Unity Generated CSProj files
 *.csproj
+/[Pp]roject[Ss]ettings/ProjectVersion.txt
