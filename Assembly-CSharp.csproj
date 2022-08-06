@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Mission Interactables\MissionSequence.cs" />
     <Compile Include="Assets\Scripts\Mission Interactables\PositionTriggerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Mission Interactables\MissionPickupItem.cs" />
+    <Compile Include="Assets\Scripts\EnemyAi.cs" />
     <Compile Include="Assets\Scripts\Mission Interactables\MissionObjective.cs" />
   </ItemGroup>
   <ItemGroup>
