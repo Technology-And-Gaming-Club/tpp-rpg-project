@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-abstract public class MissionObjective : MonoBehaviour {
-	public bool started;
-	public bool passed;
+public class LocationObjective : MissionObjective {
 
 	// Use this for initialization
 	void Start() {
-		started = false;
+
 	}
 
 	// Update is called once per frame
@@ -15,5 +13,7 @@ abstract public class MissionObjective : MonoBehaviour {
 
 	}
 
-	abstract public void play();
+	public override void play() {
+		
+	}
 }
