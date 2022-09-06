@@ -6,12 +6,7 @@ using System.Collections;
 using UnityEngine;
 
 public class CollectionObjective : MissionObjective {
-
-
-	// Use this for initialization
-	void Start() {
-
-	}
+	public Collectible[] targetItems;
 
 	// Update is called once per frame
 	void Update() {
