@@ -1,20 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class MissionObjective : MonoBehaviour {
+abstract public class MissionObjective : MonoBehaviour {
 	public bool started;
+	public float progress;
+	public bool passed;
 
 	// Use this for initialization
 	void Start() {
 		started = false;
+		passed = false;
+		progress = 0;
 	}
 
 	// Update is called once per frame
-	void Update() {
 
-	}
-
-	public void play() {
-		started = true;
-	}
+	abstract public void play();
 }

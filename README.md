@@ -14,6 +14,8 @@ Direct contributors:
 4. Srivishnu Thatha - [GitHub](https://github.com/srivishnu2002) | [itch](https://srivishnu2002.itch.io)
 5. Ashwin Ravikumar - [GitHub](https://github.com/E-Lucid-At0r) | [itch](https://e-lucidat0r.itch.io)
 6. Anishwar Chakraborty - [GitHub](https://github.com/agentheroic) | [itch](https://agentheroic.itch.io)
+7. Soumya Gupta - [GitHub](https://github.com/soumyagupta86) | [itch](https://soumya-8107.itch.io)
+8. Mohika Rastogi - [GitHub](https://github.com/Ventress13) | [itch](https://ventress13.itch.io)
 
 ## Software Requirements
 The following softwares are needed in order to contribute to the project:
